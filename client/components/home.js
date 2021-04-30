@@ -1,19 +1,48 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { setCards } from "../store/cards";
 
-export const Home = () => {
-  return (
-    <div>
-      <div className="navbar">
-        <Link to="/instructions">How to Play</Link>
+class Home extends React.Component {
+  componentDidMount() {
+    try {
+      this.props.getCards();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  render() {
+    console.log("home", this.props);
+    return (
+      <div className="home">
+        <div className="navbar">
+          <Link to="/play" className="navbar-item">
+            Play
+          </Link>
+          <Link to="/instructions" className="navbar-item">
+            How to Play
+          </Link>
+        </div>
+
+        <div>
+          <h1>Time's UP!</h1>
+          <Link to="/play"></Link>
+        </div>
       </div>
-      <h1>Time's UP!</h1>
-      <h2>title recall</h2>
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrFzgut32srdxW6iveEcB3lDoAPhr6Gs7qbg&usqp=CAU" />
-      <Link to="/play"></Link>
-    </div>
-  );
+    );
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    cards: state.cards,
+  };
 };
 
-export default Home;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getCards: () => dispatch(setCards()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
