@@ -16,6 +16,7 @@ export class Play extends React.Component {
       scoreA: 0,
       scoreB: 0,
       team: "A",
+      color: "black",
     };
     this.handleCorrect = this.handleCorrect.bind(this);
     this.handlePass = this.handlePass.bind(this);
@@ -85,12 +86,20 @@ export class Play extends React.Component {
         ) : (
           <div>
             <div className="team">
-              <h4>Team {this.state.team}'s turn</h4>
+              <h1>Team {this.state.team}'s turn</h1>
+            </div>
+            <div className="deck-counter">
+              <p>Cards Remaining: {this.state.cardsRemaining} </p>
             </div>
             {/* <Timer timer={this.state.timer} /> */}
             {this.state.timer > 0 ? (
               <>
-                <h1>{this.state.timer} </h1>
+                {this.state.timer > 5 ? (
+                  <h1 className="black">{this.state.timer} </h1>
+                ) : (
+                  <h1 className="red">{this.state.timer} </h1>
+                )}
+
                 <Deck
                   deck={this.state.cards}
                   cardsRemaining={this.state.cardsRemaining}
@@ -115,12 +124,16 @@ export class Play extends React.Component {
                 Go!
               </button>
             )}
-            <div className="deck-counter">
-              <p>cards left in deck: {this.state.cardsRemaining}</p>
-            </div>
+
             <div className="score">
-              <p>Team A score: {this.state.scoreA}</p>
-              <p>Team B score: {this.state.scoreB}</p>
+              <div className="score-a">
+                <p>Team A's Score </p>
+                <h1>{this.state.scoreA}</h1>
+              </div>
+              <div className="score-b">
+                <p>Team B's Score </p>
+                <h1>{this.state.scoreB}</h1>
+              </div>
             </div>
           </div>
         )}

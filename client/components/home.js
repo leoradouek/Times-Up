@@ -26,7 +26,6 @@ class Home extends React.Component {
 
         <div>
           <h1>Time's UP!</h1>
-          <Link to="/play"></Link>
         </div>
       </div>
     );

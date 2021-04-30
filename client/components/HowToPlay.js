@@ -6,7 +6,7 @@ const HowToPlay = () => (
   <div>
     <div className="navbar">
       <Link to="/" className="navbar-item">
-        Back
+        <i className="fa fa-angle-left" aria-hidden="true"></i> Back
       </Link>
     </div>
     <div className="rules">

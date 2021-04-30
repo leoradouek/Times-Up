@@ -11,18 +11,16 @@ class Deck extends React.Component {
     const currentCard = deck[0];
 
     return (
-      <>
+      <div className="card">
         {currentCard ? (
-          <div className="card">
-            <h4>{currentCard.title}</h4>
+          <div className="card-content">
+            <h1>{currentCard.title}</h1>
             <p>{currentCard.genre}</p>
           </div>
         ) : (
-          <div className="card">
-            <p>End of Deck!</p>
-          </div>
+          <div className="end">End of Deck!</div>
         )}
-      </>
+      </div>
     );
   }
 }

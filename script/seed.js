@@ -76,7 +76,7 @@ async function seed() {
       genre: "SG",
     }),
     Card.create({
-      title: "Ignition",
+      title: "Bye Bye Bye",
       genre: "SG",
     }),
     Card.create({
@@ -84,104 +84,128 @@ async function seed() {
       genre: "AL",
     }),
     Card.create({
-      title: "Title1",
+      title: "This is Us",
       genre: "TV",
     }),
     Card.create({
-      title: "Title2",
+      title: "Billy Elliot",
       genre: "PM",
     }),
     Card.create({
-      title: "Title3",
+      title: "Full House",
       genre: "TV",
     }),
     Card.create({
-      title: "Title4",
+      title: "To Kill a Mockingbird",
       genre: "BK",
     }),
     Card.create({
-      title: "Title5",
+      title: "Jaws",
       genre: "MV",
     }),
     Card.create({
-      title: "Title6",
+      title: "The Circle",
       genre: "TV",
     }),
     Card.create({
-      title: "Title7",
-      genre: "SG",
+      title: "Purple Rain",
+      genre: "AL",
     }),
     Card.create({
-      title: "Title8",
+      title: "Friends",
       genre: "TV",
     }),
     Card.create({
-      title: "Title9",
-      genre: "SG",
+      title: "Desperate Housewives",
+      genre: "TV",
     }),
     Card.create({
-      title: "Title10",
+      title: "Around the World in 80 Days",
+      genre: "MV",
+    }),
+    Card.create({
+      title: "Family Ties",
+      genre: "TV",
+    }),
+    Card.create({
+      title: "Everybody Loves Raymond",
+      genre: "TV",
+    }),
+    Card.create({
+      title: "The Great Gatsby",
       genre: "BK",
     }),
     Card.create({
-      title: "Title11",
+      title: "Candy",
       genre: "SG",
     }),
     Card.create({
-      title: "Title12",
-      genre: "SG",
+      title: "The Sound of Music",
+      genre: "PM",
     }),
     Card.create({
-      title: "Title13",
-      genre: "SG",
-    }),
-    Card.create({
-      title: "Title14",
-      genre: "SG",
-    }),
-    Card.create({
-      title: "Title15",
-      genre: "SG",
-    }),
-    Card.create({
-      title: "Title16",
-      genre: "SG",
-    }),
-    Card.create({
-      title: "Title17",
-      genre: "AL",
-    }),
-    Card.create({
-      title: "Title18",
+      title: "Catch 22",
       genre: "BK",
     }),
     Card.create({
-      title: "Title19",
+      title: "Reader's Digest",
+      genre: "BK",
+    }),
+    Card.create({
+      title: "An American in Paris",
+      genre: "PM",
+    }),
+    Card.create({
+      title: "Of Mice and Men",
+      genre: "BK",
+    }),
+    Card.create({
+      title: "Eat Pray Love",
+      genre: "MV",
+    }),
+    Card.create({
+      title: "The Notebook",
+      genre: "BK",
+    }),
+    Card.create({
+      title: "I Just Can't Wait To Be King",
       genre: "SG",
     }),
     Card.create({
-      title: "Title20",
-      genre: "SG",
+      title: "A Clockwork Orange",
+      genre: "BK",
     }),
     Card.create({
-      title: "Title21",
-      genre: "SG",
-    }),
-    Card.create({
-      title: "Title22",
-      genre: "SG",
-    }),
-    Card.create({
-      title: "Title23",
-      genre: "SG",
-    }),
-    Card.create({
-      title: "Title24",
-      genre: "SG",
-    }),
-    Card.create({
-      title: "Title25",
+      title: "Abbey Road",
       genre: "AL",
+    }),
+    Card.create({
+      title: "Songs in the Key of Life",
+      genre: "AL",
+    }),
+    Card.create({
+      title: "Blood on the Tracks",
+      genre: "AL",
+    }),
+    Card.create({
+      title: "Jurassic Park",
+      genre: "MV",
+    }),
+    Card.create({
+      title: "Still Alice",
+      genre: "BK",
+    }),
+    Card.create({
+      title: "The Incredibles",
+      genre: "MV",
+    }),
+    Card.create({
+      title: "A Walk to Remember",
+      genre: "BK",
+    }),
+    Card.create({
+      title: "Take on Me",
+      genre: "SG",
     }),
   ]);
 

@@ -1,5 +1,5 @@
 body {
-  background-color: #e5fff2;
+  background-color: #e6fabe;
 }
 
 a {
@@ -44,33 +44,34 @@ form div {
 }
 .navbar-item {
   font-family: "Shadows Into Light Two", cursive;
+  font-size: 20px;
   color: orange;
   margin: 10px;
+  font-weight: 1000;
 }
 
 .navbar-item:hover {
-  font-size: 18px;
   color: rgb(243, 197, 112);
 }
 
 /* HOW-TO-PLAY */
 .rules {
   font-family: "Raleway", sans-serif;
-  padding: 10px;
+  color: #0a5947;
 }
 
 .round-one {
-  background-color: palegoldenrod;
+  color: #03919b;
   padding: 10px;
 }
 
 .round-two {
-  background-color: rgba(175, 241, 20, 0.2);
+  color: #ec5064;
   padding: 10px;
 }
 
 .round-three {
-  background-color: rgba(248, 168, 224, 0.2);
+  color: #f9a834;
   padding: 10px;
 }
 
@@ -83,27 +84,40 @@ form div {
 
 .score {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 /* DECK */
-.card {
+.card-content {
+  background-color: rgb(255, 205, 96);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 10px;
-  margin: 15px;
+  margin: 20px;
   border-radius: 5px;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
 }
 
-.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+.card-content h1 {
+  font-size: 30px;
+}
+.card-content p {
+  width: 50px;
+  text-align: center;
+  background-color: palegoldenrod;
+  align-self: flex-end;
 }
 
-.card p {
-  border: 1px solid black;
-  padding: 3px;
-  text-align: right;
+.end {
+  font-size: 40px;
+  margin-bottom: 20px;
 }
 
+/* TIMER in main */
+.red {
+  color: red;
+}
 /* TIMER */
 .timer {
   position: relative;
