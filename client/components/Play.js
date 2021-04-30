@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import { setCards } from "../store/cards";
 import Deck from "./Deck";
 import Timer from "./Timer";
+import Score from "./Score";
+import TeamSignUp from "./TeamSignUp";
+import Actions from "./Actions";
 
 export class Play extends React.Component {
   constructor(props) {
@@ -11,17 +14,19 @@ export class Play extends React.Component {
     this.state = {
       start: false,
       timer: 0,
-      cards: this.props.cards,
+      cards: [],
       cardsRemaining: 40,
       scoreA: 0,
       scoreB: 0,
       team: "A",
       color: "black",
+      round: 1,
     };
     this.handleCorrect = this.handleCorrect.bind(this);
     this.handlePass = this.handlePass.bind(this);
     this.handleStartGame = this.handleStartGame.bind(this);
     this.handleTimer = this.handleTimer.bind(this);
+    this.handleNextRound = this.handleNextRound.bind(this);
   }
 
   componentDidMount() {
@@ -33,8 +38,7 @@ export class Play extends React.Component {
   }
 
   handleStartGame() {
-    this.setState({ start: true });
-    this.setState({ cards: this.props.cards });
+    this.setState({ start: true, cards: this.props.cards });
   }
 
   handleTimer() {
@@ -76,65 +80,90 @@ export class Play extends React.Component {
     this.setState({ cards: cards });
   }
 
+  handleNextRound() {
+    let team = "";
+    this.state.scoreA > this.state.scoreB ? (team = "B") : (team = "A");
+    this.setState({
+      cardsRemaining: 40,
+      round: this.state.round + 1,
+      team: team,
+      timer: 10,
+    });
+  }
+
   render() {
     return (
       <div className="container">
+        <div className="navbar">
+          <Link to="/" className="navbar-item">
+            <i className="fa fa-angle-left" aria-hidden="true"></i> Back
+          </Link>
+        </div>
+
         {!this.state.start ? (
-          <button className="start" onClick={() => this.handleStartGame()}>
-            Play
-          </button>
+          <>
+            <h1>form 2 teams and get ready for some fun!</h1>
+            <button className="start" onClick={() => this.handleStartGame()}>
+              Play
+            </button>
+          </>
         ) : (
           <div>
-            <div className="team">
-              <h1>Team {this.state.team}'s turn</h1>
-            </div>
-            <div className="deck-counter">
-              <p>Cards Remaining: {this.state.cardsRemaining} </p>
-            </div>
-            {/* <Timer timer={this.state.timer} /> */}
-            {this.state.timer > 0 ? (
+            {this.state.cardsRemaining ? (
               <>
-                {this.state.timer > 5 ? (
-                  <h1 className="black">{this.state.timer} </h1>
-                ) : (
-                  <h1 className="red">{this.state.timer} </h1>
-                )}
-
-                <Deck
-                  deck={this.state.cards}
-                  cardsRemaining={this.state.cardsRemaining}
-                />
-                <div className="correct-or-pass">
-                  <button
-                    className="correct"
-                    onClick={() => this.handleCorrect()}
-                  >
-                    <i className="fa fa-check" aria-hidden="true"></i>
-                  </button>
-                  <button className="pass" onClick={() => this.handlePass()}>
-                    <i className="fa fa-times" aria-hidden="true"></i>
-                  </button>
+                <div className="team">
+                  {this.state.team === "A" ? (
+                    <h1>team A's turn</h1>
+                  ) : (
+                    <h1>team B's turn</h1>
+                  )}
                 </div>
+                <div className="deck-counter">
+                  <p>Cards Remaining: {this.state.cardsRemaining} </p>
+                </div>
+
+                {this.state.timer > 0 ? (
+                  <>
+                    {this.state.timer > 5 ? (
+                      <h1 className="black">{this.state.timer} </h1>
+                    ) : (
+                      <h1 className="red">{this.state.timer} </h1>
+                    )}
+
+                    <Deck
+                      deck={this.state.cards}
+                      cardsRemaining={this.state.cardsRemaining}
+                    />
+
+                    <Actions
+                      handleCorrect={this.handleCorrect}
+                      handlePass={this.handlePass}
+                    />
+                  </>
+                ) : (
+                  <button
+                    className="start-timer"
+                    onClick={() => this.handleTimer()}
+                  >
+                    Go!
+                  </button>
+                )}
               </>
             ) : (
               <button
-                className="start-timer"
-                onClick={() => this.handleTimer()}
+                className="next-round"
+                onClick={() => this.handleNextRound()}
               >
-                Go!
+                Next Round
               </button>
             )}
 
-            <div className="score">
-              <div className="score-a">
-                <p>Team A's Score </p>
-                <h1>{this.state.scoreA}</h1>
-              </div>
-              <div className="score-b">
-                <p>Team B's Score </p>
-                <h1>{this.state.scoreB}</h1>
-              </div>
-            </div>
+            <Score
+              scoreA={this.state.scoreA}
+              scoreB={this.state.scoreB}
+              teamA={this.state.teamA}
+              teamB={this.state.teamB}
+            />
           </div>
         )}
       </div>
@@ -155,34 +184,3 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Play);
-
-// {
-//   this.state.timer > 0 ? (
-//     <>
-//       <Timer timer={this.state.timer} />
-//       <h1>{this.state.timer} </h1>
-
-//       <Deck
-//         deck={this.state.cards}
-//         cardsRemaining={this.state.cardsRemaining}
-//       />
-//       <div className="correct-or-pass">
-//         <button className="correct" onClick={() => this.handleCorrect()}>
-//           Correct
-//         </button>
-//         <button className="pass" onClick={() => this.handlePass()}>
-//           Pass
-//         </button>
-//       </div>
-//     </>
-//   ) : (
-//     <div>
-//       <h1>Time's Up!</h1>
-//       <div>
-//         <button className="correct" onClick={() => this.handleTimer()}>
-//           Go!
-//         </button>
-//       </div>
-//     </div>
-//   );
-// }

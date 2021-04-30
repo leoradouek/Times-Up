@@ -18,7 +18,7 @@ class Deck extends React.Component {
             <p>{currentCard.genre}</p>
           </div>
         ) : (
-          <div className="end">End of Deck!</div>
+          <></>
         )}
       </div>
     );

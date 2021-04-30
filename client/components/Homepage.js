@@ -4,6 +4,13 @@ import { Link } from "react-router-dom";
 import { setCards } from "../store/cards";
 
 class Home extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      teamA: "",
+      teamB: "",
+    };
+  }
   componentDidMount() {
     try {
       this.props.getCards();
