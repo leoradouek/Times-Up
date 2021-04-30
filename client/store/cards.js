@@ -14,7 +14,9 @@ export const setCards = () => {
   return async (dispatch) => {
     try {
       const { data } = await axios.get("/api/cards");
-      dispatch(_setCards(data));
+      data.sort(() => 0.5 - Math.random()); // shuffle the deck
+      let deck = data.slice(0, 40); //get sub-array of first 40 elements after shuffled
+      dispatch(_setCards(deck));
     } catch (err) {
       console.log("Error fetching cards via thunk");
     }
