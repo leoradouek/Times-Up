@@ -207,6 +207,94 @@ async function seed() {
       title: "Take on Me",
       genre: "SG",
     }),
+    Card.create({
+      title: "Lord of the Rings",
+      genre: "BK",
+    }),
+    Card.create({
+      title: "Lord of the Flies",
+      genre: "BK",
+    }),
+    Card.create({
+      title: "Hamlet",
+      genre: "PM",
+    }),
+    Card.create({
+      title: "Cats",
+      genre: "PM",
+    }),
+    Card.create({
+      title: "Legally Blond",
+      genre: "MV",
+    }),
+    Card.create({
+      title: "Glee",
+      genre: "TV",
+    }),
+    Card.create({
+      title: "How Deep is Your Love?",
+      genre: "MV",
+    }),
+    Card.create({
+      title: "Pac Man",
+      genre: "OT",
+    }),
+    Card.create({
+      title: "Seven Brides for Seven Brothers",
+      genre: "PM",
+    }),
+    Card.create({
+      title: "Grease",
+      genre: "MV",
+    }),
+    Card.create({
+      title: "Othello",
+      genre: "PM",
+    }),
+    Card.create({
+      title: "Stand By Me",
+      genre: "SG",
+    }),
+    Card.create({
+      title: "Schoolhouse Rock",
+      genre: "TV",
+    }),
+    Card.create({
+      title: "All My Children",
+      genre: "TV",
+    }),
+    Card.create({
+      title: "The Birth of Venus",
+      genre: "FA",
+    }),
+    Card.create({
+      title: "Romeo and Juliet",
+      genre: "PM",
+    }),
+    Card.create({
+      title: "Tiny Dancer",
+      genre: "SG",
+    }),
+    Card.create({
+      title: "Rear Window",
+      genre: "MV",
+    }),
+    Card.create({
+      title: "No Jacket Required",
+      genre: "TV",
+    }),
+    Card.create({
+      title: "I Wanna Be Sedated",
+      genre: "SG",
+    }),
+    Card.create({
+      title: "Bambi",
+      genre: "MV",
+    }),
+    Card.create({
+      title: "The Muppet Show",
+      genre: "TV",
+    }),
   ]);
 
   console.log(`seeded ${cards.length} cards`);
