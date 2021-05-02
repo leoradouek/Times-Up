@@ -86,27 +86,35 @@ export class Play extends React.Component {
   handleNextRound() {
     let team = "";
     this.state.scoreA > this.state.scoreB ? (team = "B") : (team = "A");
+    let shuffled = this.props.cards.sort(() => 0.5 - Math.random());
     this.setState({
       cardsRemaining: 40,
       round: this.state.round + 1,
       team: team,
-      timer: 10,
-      cards: this.props.cards,
+      timer: 0,
+      cards: shuffled,
     });
   }
 
   render() {
+    const room = this.props.match.params.id;
+
     return (
       <div className="container">
         <div className="navbar">
           <Link to="/" className="navbar-item">
             <i className="fa fa-angle-left" aria-hidden="true"></i> Back
           </Link>
+          <h5>room: {room}</h5>
         </div>
         {!this.state.start ? (
-          <button className="start" onClick={() => this.handleStartGame()}>
-            Play
-          </button>
+          <>
+            <h2>what are you waiting for??</h2>
+
+            <button className="start" onClick={() => this.handleStartGame()}>
+              Play
+            </button>
+          </>
         ) : (
           <div className="container-main">
             <div className="side-panel">

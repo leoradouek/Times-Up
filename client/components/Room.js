@@ -17,16 +17,22 @@ class Room extends React.Component {
   render() {
     const rooms = this.props.rooms;
     return (
-      <div className="dropdown">
-        <button className="dropbtn">
-          Join a Room <i className="fa fa-sign-in" aria-hidden="true"></i>
-        </button>
-        <div className="dropdown-content">
-          {rooms.map((room) => (
-            <Link to={`/play/${room.id}`} key={room.id}>
-              {room.name}
-            </Link>
-          ))}
+      <div>
+        <Link to="/room">
+          <button className="start-room">Start a Room</button>
+        </Link>
+
+        <div className="dropdown">
+          <button className="dropbtn">
+            Join a Room <i className="fa fa-sign-in" aria-hidden="true"></i>
+          </button>
+          <div className="dropdown-content">
+            {rooms.map((room) => (
+              <Link to={`/room/${room.name}`} key={room.id}>
+                {room.name}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     );

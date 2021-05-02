@@ -16,10 +16,7 @@ async function seed() {
   // Creating Rooms
   const rooms = await Promise.all([
     Room.create({
-      name: "Spoiler Alert",
-    }),
-    Room.create({
-      name: "Jurrasic Park the Book",
+      name: "Room_1",
     }),
   ]);
   // Creating Cards

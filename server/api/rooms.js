@@ -12,4 +12,17 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+router.post("/", async (req, res, next) => {
+  try {
+    const room = {
+      name: req.body.name,
+    };
+
+    const newRoom = await Room.create(room);
+    res.status(201).json(newRoom);
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;

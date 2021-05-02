@@ -58,6 +58,7 @@ a {
 .navbar {
   display: flex;
   justify-content: space-between;
+  padding-right: 20px;
 }
 .navbar-item {
   font-family: "Shadows Into Light Two", cursive;
@@ -69,6 +70,14 @@ a {
 
 .navbar-item:hover {
   text-shadow: 2px 2px orange;
+}
+
+h5 {
+  font-family: "Shadows Into Light Two", cursive;
+  font-size: 20px;
+  color: white;
+  margin: 10px;
+  font-weight: 1000;
 }
 
 /* HOW-TO-PLAY */
@@ -90,6 +99,23 @@ a {
 .round-three {
   color: #f9a834;
   padding: 10px;
+}
+
+/* NEW ROOM*/
+form {
+  padding-top: 300px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  font-family: "Shadows Into Light Two", cursive;
+  font-size: 20px;
+  text-align: center;
+  margin: 15px;
+  width: 400px;
 }
 
 /* JOIN ROOM */
@@ -263,4 +289,13 @@ button:hover {
   width: 150px;
   height: 50px;
   font-size: 20px;
+}
+
+.start-room {
+  background-color: #f38b1a;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
 }

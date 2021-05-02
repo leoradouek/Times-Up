@@ -5,6 +5,7 @@ import { Login, Signup } from "./components/AuthForm";
 import Home from "./components/Homepage";
 import HowToPlay from "./components/HowToPlay";
 import Play from "./components/Play";
+import RoomForm from "./components/RoomForm";
 import { me } from "./store";
 
 class Routes extends Component {
@@ -14,7 +15,8 @@ class Routes extends Component {
         <Route path="/" exact component={Home} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
-        <Route path="/play/:id" component={Play} />
+        <Route exact path="/room" component={RoomForm} />
+        <Route path="/room/:id" component={Play} />
         <Route path="/instructions" component={HowToPlay} />
       </div>
     );

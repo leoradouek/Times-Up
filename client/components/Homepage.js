@@ -33,7 +33,6 @@ class Home extends React.Component {
         <div className="home-main">
           <h1>Time's UP!</h1>
           <div className="pineapple">
-            {/* <p>Cool</p> */}
             <img src="pineapple.png" />
           </div>
         </div>
