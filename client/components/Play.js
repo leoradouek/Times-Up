@@ -7,6 +7,7 @@ import Timer from "./Timer";
 import Score from "./Score";
 import TeamSignUp from "./TeamSignUp";
 import Actions from "./Actions";
+import socket from "../socket";
 
 export class Play extends React.Component {
   constructor(props) {
@@ -39,10 +40,12 @@ export class Play extends React.Component {
 
   handleStartGame() {
     this.setState({ start: true, cards: this.props.cards });
+    const msg = "User is ready to play";
+    socket.emit("onPlay", msg);
   }
 
   handleTimer() {
-    this.setState({ timer: 10 });
+    this.setState({ timer: 30 });
 
     const countDown = () => {
       this.setState({ timer: this.state.timer - 1 });
@@ -88,6 +91,7 @@ export class Play extends React.Component {
       round: this.state.round + 1,
       team: team,
       timer: 10,
+      cards: this.props.cards,
     });
   }
 
@@ -99,29 +103,30 @@ export class Play extends React.Component {
             <i className="fa fa-angle-left" aria-hidden="true"></i> Back
           </Link>
         </div>
-
         {!this.state.start ? (
-          <>
-            <h1>form 2 teams and get ready for some fun!</h1>
-            <button className="start" onClick={() => this.handleStartGame()}>
-              Play
-            </button>
-          </>
+          <button className="start" onClick={() => this.handleStartGame()}>
+            Play
+          </button>
         ) : (
-          <div>
-            {this.state.cardsRemaining ? (
-              <>
-                <div className="team">
-                  {this.state.team === "A" ? (
-                    <h1>team A's turn</h1>
-                  ) : (
-                    <h1>team B's turn</h1>
-                  )}
-                </div>
-                <div className="deck-counter">
-                  <p>Cards Remaining: {this.state.cardsRemaining} </p>
-                </div>
+          <div className="container-main">
+            <div className="side-panel">
+              {this.state.team === "A" ? (
+                <h1>team A's turn</h1>
+              ) : (
+                <h1>team B's turn</h1>
+              )}
 
+              <h2>Cards Remaining: {this.state.cardsRemaining} </h2>
+
+              <Score
+                scoreA={this.state.scoreA}
+                scoreB={this.state.scoreB}
+                teamA={this.state.teamA}
+                teamB={this.state.teamB}
+              />
+            </div>
+            {this.state.cardsRemaining ? (
+              <div className="game">
                 {this.state.timer > 0 ? (
                   <>
                     {this.state.timer > 5 ? (
@@ -148,7 +153,7 @@ export class Play extends React.Component {
                     Go!
                   </button>
                 )}
-              </>
+              </div>
             ) : (
               <button
                 className="next-round"
@@ -157,13 +162,6 @@ export class Play extends React.Component {
                 Next Round
               </button>
             )}
-
-            <Score
-              scoreA={this.state.scoreA}
-              scoreB={this.state.scoreB}
-              teamA={this.state.teamA}
-              teamB={this.state.teamB}
-            />
           </div>
         )}
       </div>

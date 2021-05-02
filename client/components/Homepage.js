@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { setCards } from "../store/cards";
+import Room from "./Room";
 
 class Home extends React.Component {
   constructor() {
@@ -19,20 +20,22 @@ class Home extends React.Component {
     }
   }
   render() {
-    console.log("home", this.props);
+    console.log("card", this.props);
     return (
       <div className="home">
         <div className="navbar">
-          <Link to="/play" className="navbar-item">
-            Play
-          </Link>
+          <Room />
           <Link to="/instructions" className="navbar-item">
             How to Play
           </Link>
         </div>
 
-        <div>
+        <div className="home-main">
           <h1>Time's UP!</h1>
+          <div className="pineapple">
+            {/* <p>Cool</p> */}
+            <img src="pineapple.png" />
+          </div>
         </div>
       </div>
     );

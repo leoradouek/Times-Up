@@ -2,7 +2,7 @@
 
 const {
   db,
-  models: { Card },
+  models: { Card, Room },
 } = require("../server/db");
 
 /**
@@ -13,7 +13,16 @@ async function seed() {
   await db.sync({ force: true }); // clears db and matches models to tables
   console.log("db synced!");
 
-  // Creating Users
+  // Creating Rooms
+  const rooms = await Promise.all([
+    Room.create({
+      name: "Spoiler Alert",
+    }),
+    Room.create({
+      name: "Jurrasic Park the Book",
+    }),
+  ]);
+  // Creating Cards
   const cards = await Promise.all([
     Card.create({
       title: "The Amazing Race",
