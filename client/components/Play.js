@@ -45,7 +45,7 @@ export class Play extends React.Component {
   }
 
   handleTimer() {
-    this.setState({ timer: 30 });
+    this.setState({ timer: 60 });
 
     const countDown = () => {
       this.setState({ timer: this.state.timer - 1 });
