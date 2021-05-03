@@ -98,6 +98,10 @@ export class Play extends React.Component {
 
   render() {
     const room = this.props.match.params.id;
+    let winner = "";
+    this.state.scoreA > this.state.scoreB
+      ? (winner = "Team A")
+      : (winner = "Team B");
 
     return (
       <div className="container">
@@ -108,13 +112,9 @@ export class Play extends React.Component {
           <h5>room: {room}</h5>
         </div>
         {!this.state.start ? (
-          <>
-            <h2>what are you waiting for??</h2>
-
-            <button className="start" onClick={() => this.handleStartGame()}>
-              Play
-            </button>
-          </>
+          <button className="start" onClick={() => this.handleStartGame()}>
+            Play
+          </button>
         ) : (
           <div className="container-main">
             <div className="side-panel">
@@ -123,7 +123,7 @@ export class Play extends React.Component {
               ) : (
                 <h1>team B's turn</h1>
               )}
-
+              <h2>Round: {this.state.round}</h2>
               <h2>Cards Remaining: {this.state.cardsRemaining} </h2>
 
               <Score
@@ -163,12 +163,21 @@ export class Play extends React.Component {
                 )}
               </div>
             ) : (
-              <button
-                className="next-round"
-                onClick={() => this.handleNextRound()}
-              >
-                Next Round
-              </button>
+              <>
+                {this.state.round < 3 ? (
+                  <button
+                    className="next-round"
+                    onClick={() => this.handleNextRound()}
+                  >
+                    Next Round
+                  </button>
+                ) : (
+                  <div className="game-over">
+                    <h1>GAME OVER</h1>
+                    <h1>{winner} wins!</h1>
+                  </div>
+                )}
+              </>
             )}
           </div>
         )}

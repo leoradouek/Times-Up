@@ -83,10 +83,37 @@ h5 {
 /* HOW-TO-PLAY */
 .rules {
   font-family: "Raleway", sans-serif;
-  color: #0a5947;
+  padding: 10px;
+}
+.rules h3 {
+  padding: 10px;
 }
 
-.round-one {
+.rounds-container {
+  display: flex;
+}
+
+.round {
+  background-color: #fff9e8;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  margin: 10px;
+  border-radius: 5px;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  align-self: flex-start;
+}
+
+.round h1 {
+  text-align: center;
+}
+.round h2 {
+  color: orange;
+  text-align: center;
+}
+/* .round-one {
   color: #03919b;
   padding: 10px;
 }
@@ -99,7 +126,7 @@ h5 {
 .round-three {
   color: #f9a834;
   padding: 10px;
-}
+} */
 
 /* NEW ROOM*/
 form {
@@ -198,6 +225,19 @@ input {
 .side-panel > h1 {
   color: #f38b1a;
 }
+
+.game-over {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-over h1 {
+  align-self: center;
+  margin-left: 300px;
+}
+
 /* DECK */
 .card {
   display: flex;
@@ -266,6 +306,7 @@ button:hover {
   width: 150px;
   height: 50px;
   font-size: 20px;
+  margin-top: 200px;
 }
 
 .start-timer {
@@ -289,6 +330,7 @@ button:hover {
   width: 150px;
   height: 50px;
   font-size: 20px;
+  margin-left: 300px;
 }
 
 .start-room {
